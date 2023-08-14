@@ -1,9 +1,12 @@
-const inputName = document.getElementById("name-input");
-const outputName = document.getElementById("name-output");
+const inputRef = document.querySelector('#name-input');
+const nameRef = document.querySelector('#name-output');
 
-const placeholder = (event) => {
-  outputName.textContent =
-    inputName.value !== "" ? event.currentTarget.value : "Anonymous";
+const getInputValue = ({ currentTarget }) => {
+  if (currentTarget.value.trim() !== "") {
+    nameRef.textContent = currentTarget.value.trim();
+  } else {
+    nameRef.textContent = "Anonymous";
+  }
 };
 
-inputName.addEventListener("input", placeholder);
+inputRef.addEventListener("input", getInputValue);

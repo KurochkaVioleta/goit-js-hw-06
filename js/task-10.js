@@ -37,7 +37,8 @@ function destroyBoxes() {
 function createBoxes(amount) {
   let size = 30;
   const boxesArr = [];
-  for (let i = 0; i < amount; i += 1) {
+  const step = Number(inputNumberEl.attributes.step.value);
+  for (let i = 0; i < amount; i += step) {
     size += 10 * i;
     const div = `<div class="item" style="display: block; margin-right: 30px; margin-bottom: 30px; background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>`;
     boxesArr.push(div);
